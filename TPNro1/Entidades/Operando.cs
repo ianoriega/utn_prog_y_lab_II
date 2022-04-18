@@ -68,6 +68,11 @@ namespace Entidades
             return true;
         }
 
+        /// <summary>
+        /// Permite convertir el numero binario en decimal
+        /// </summary>
+        /// <param name="binario">la cadena que contiene el numero a convertir</param>
+        /// <returns>el numero convertido a decimal, o si no pudo "Valor Invalido"</returns>
         public string BinarioDecimal(string binario)
         {
             string numeroDecimal = "Valor Inválido";
@@ -99,11 +104,21 @@ namespace Entidades
             return numeroDecimal;
         }
 
+        /// <summary>
+        /// Permite convertir un numero decimal a binario
+        /// </summary>
+        /// <param name="numero">cadena con el numero decimal a convertir</param>
+        /// <returns>retorna el numero convertido a binario, o si no pudo "Valor invalido"</returns>
         public string DecimalBinario(string numero)
         {
             return DecimalBinario(double.Parse(numero));
         }
 
+        /// <summary>
+        /// Permite convertir un numero decimal a binario
+        /// </summary>
+        /// <param name="numero">el numero decimal a convertir</param>
+        /// <returns>retorna el numero convertido a binario, o si no pudo "Valor invalido"</returns>
         public string DecimalBinario(double numero)
         {
             numero = Math.Abs(numero);
@@ -119,21 +134,46 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Sobrecarga operador +
+        /// </summary>
+        /// <param name="n1">Objeto del tipo Operando</param>
+        /// <param name="n2">Objeto del tipo Operando</param>
+        /// <returns>la suma del valor numero de los objeos recibidos</returns>
         public static double operator + (Operando n1, Operando n2)
         {
             return n1.numero + n2.numero;
         }
 
+        /// <summary>
+        /// Sobrecarga operador -
+        /// </summary>
+        /// <param name="n1">Objeto del tipo Operando</param>
+        /// <param name="n2">Objeto del tipo Operando</param>
+        /// <returns>la resta del valor numero de los objeos recibidos</returns>
         public static double operator -(Operando n1, Operando n2)
         {
             return n1.numero - n2.numero;
         }
 
+        /// <summary>
+        /// Sobrecarga operador *
+        /// </summary>
+        /// <param name="n1">Objeto del tipo Operando</param>
+        /// <param name="n2">Objeto del tipo Operando</param>
+        /// <returns>la multiplicacion del valor numero de los objeos recibidos</returns>
         public static double operator *(Operando n1, Operando n2)
         {
             return n1.numero * n2.numero;
         }
 
+        /// <summary>
+        /// Sobrecarga operador /
+        /// </summary>
+        /// <param name="n1">Objeto del tipo Operando</param>
+        /// <param name="n2">Objeto del tipo Operando</param>
+        /// <returns>la division del valor numero de los objeos recibidos
+        /// en caso de division por 0 retorna Mat.minValue </returns>
         public static double operator /(Operando n1, Operando n2)
         {
             if (n2.numero != 0)
